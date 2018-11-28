@@ -313,19 +313,21 @@ printf "${white}"
 	echo -e "---------------------------------------------------------------------- " | tee -a "$LOGFILE"
 	echo ' # apt-get -qqy -o=Dpkg::Use-Pty=0 -o=Acquire::ForceIPv4=true install ' | tee -a "$LOGFILE"
 	echo '   protobuf-compiler libboost-all-dev autotools-dev ' | tee -a "$LOGFILE"
-        echo '   automake libcurl4-openssl-dev libboost-all-dev libssl-dev libdb++-dev ' | tee -a "$LOGFILE"
-        echo '   make autoconf automake libtool git apt-utils libprotobuf-dev pkg-config ' | tee -a "$LOGFILE"
-        echo '   libcurl3-dev libudev-dev libqrencode-dev bsdmainutils pkg-config libssl-dev ' | tee -a "$LOGFILE"
-        echo '   libgmp3-dev libevent-dev jp2a pv virtualenv build-essential g++ ' | tee -a "$LOGFILE"
+        echo '   automake libcurl4-openssl-dev libboost-all-dev libssl-dev ' | tee -a "$LOGFILE"
+        echo '   make autoconf automake libtool git apt-utils libprotobuf-dev ' | tee -a "$LOGFILE"
+        echo '   libcurl3-dev libudev-dev libqrencode-dev bsdmainutils ' | tee -a "$LOGFILE"
+        echo '   libgmp3-dev libevent-dev jp2a pv virtualenv build-essential ' | tee -a "$LOGFILE"
+	echo '   libdb++-dev pkg-config libssl-dev g++ ' | tee -a "$LOGFILE"
 	echo -e "---------------------------------------------------------------------- " | tee -a "$LOGFILE"
 	printf "${nocolor}"
 	apt-get -qqy -o=Dpkg::Use-Pty=0 -o=Acquire::ForceIPv4=true install \
-	build-essential libcurl4-gnutls-dev protobuf-compiler libboost-all-dev \
-	autotools-dev automake libboost-all-dev libssl-dev make autoconf \
-	libtool git apt-utils g++ libprotobuf-dev pkg-config libudev-dev \
-	libqrencode-dev bsdmainutils pkg-config libgmp3-dev libevent-dev \
-	jp2a pv virtualenv | tee -a \
-	libdb4.8-dev libdb4.8++-dev | tee -a "$LOGFILE"
+	protobuf-compiler libboost-all-dev autotools-dev \
+        automake libcurl4-openssl-dev libboost-all-dev libssl-dev \
+        make autoconf automake libtool git apt-utils libprotobuf-dev \
+        libcurl3-dev libudev-dev libqrencode-dev bsdmainutils \
+        libgmp3-dev libevent-dev jp2a pv virtualenv build-essential \
+        libdb++-dev pkg-config libssl-dev g++ \
+	jp2a pv virtualenv | tee -a "$LOGFILE"
 # need more testing to see if autoremove breaks the script or not
 # apt autoremove -y | tee -a "$LOGFILE"
 clear
