@@ -858,10 +858,10 @@ echo -e "\n"
 		mkdir /etc/update-motd.d/
 		touch /etc/update-motd.d/00-header ; touch /etc/update-motd.d/10-sysinfo ; touch /etc/update-motd.d/90-footer ; touch /etc/update-motd.d/99-esm
 		chmod +x /etc/update-motd.d/*
-		cat etc/update-motd.d/00-header > /etc/update-motd.d/00-header
-		cat etc/update-motd.d/10-sysinfo > /etc/update-motd.d/10-sysinfo
-		cat etc/update-motd.d/90-footer > /etc/update-motd.d/90-footer
-		cat etc/update-motd.d/99-esm > /etc/update-motd.d/99-esm
+		cat motdcustom/00-header > /etc/update-motd.d/00-header
+		cat motdcustom/10-sysinfo > /etc/update-motd.d/10-sysinfo
+		cat motdcustom/90-footer > /etc/update-motd.d/90-footer
+		cat motdcustom/99-esm > /etc/update-motd.d/99-esm
 		sed -i 's,#Banner /etc/issue.net,Banner /etc/issue.net,' /etc/ssh/sshd_config
 		cat etc/issue.net > /etc/issue.net
 		clear	
